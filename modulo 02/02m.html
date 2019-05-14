@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Curso Javascript</title>
+</head>
+
+<body>
+	<div id="app"></div>
+		<button id="btn">Criar elemento</button>
+
+	<script>
+		let buttonEl = document.querySelector('#btn')
+
+		buttonEl.addEventListener('click', () => {
+			let container = document.querySelector('#app')
+			let box = document.createElement('div')
+			box.setAttribute('class', 'box')
+			box.style.width = '100px'
+			box.style.height = '100px'
+			box.style.background = '#ff0000'
+			box.style.marginBottom = '16px'
+			container.appendChild(box)
+
+			box.addEventListener('mouseover', () => {
+				box.style.background = getRandomColor()
+			})
+
+			// Gera cor aleatória
+			function getRandomColor() {
+				var letters = "0123456789ABCDEF";
+				var color = "#";
+				for (var i = 0; i < 6; i++) {
+					color += letters[Math.floor(Math.random() * 16)];
+				}
+				return color;
+			}
+
+			var newColor = getRandomColor();
+		})
+	</script>
+</body>
+
+</html>
