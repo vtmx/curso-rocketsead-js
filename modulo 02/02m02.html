@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Curso Javascript</title>
+</head>
+
+<body>
+	<div class="container">
+		<input type="text" name="nome">
+		<button onClick="adicionar()">Adicionar</button>
+	</div>
+
+	<script>
+		var nomes = ['Diego', 'Gabriel', 'Lucas']
+
+		var container = document.querySelector('.container')
+		var ul = document.createElement('ul')
+
+		for (let nome of nomes) {
+			var li = document.createElement('li')
+			var text = document.createTextNode(nome)
+			ul.appendChild(li).appendChild(text)
+		}
+
+		container.appendChild(ul)
+
+		// Adiciona novo nome
+		function adicionar() {
+			var inputNome = document.querySelector('[name="nome"]')
+			var li = document.createElement('li')
+
+			text = document.createTextNode(inputNome.value)
+			ul.appendChild(li).appendChild(text)
+			inputNome.value = ''
+		}
+	</script>
+</body>
+
+</html>
